@@ -94,6 +94,8 @@ print(testing_images.shape)
 # (27455, 28, 28, 1)
 # (7172, 28, 28, 1)
 
+# Define the model
+# Use no more than 2 Conv2D and 2 MaxPooling2D
 model = tf.keras.models.Sequential([
     # This is the first convolution
     tf.keras.layers.Conv2D(64, (3,3), activation='relu', input_shape=(150, 150, 3)),
@@ -113,7 +115,7 @@ model = tf.keras.models.Sequential([
     # 512 neuron hidden layer
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(3, activation='softmax')
-  ])
+    ])
     
 model.summary()
     
@@ -121,7 +123,7 @@ model.summary()
 model.compile(loss = 'categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
 # Train the Model
-history = model.fit(train_generator, epochs=25, steps_per_epoch=20, validation_data = validation_generator, verbose = 1, validation_steps=3)
+history = model.fit_generator(train_generator, epochs=15, steps_per_epoch=20, validation_data = validation_generator, verbose = 1, validation_steps=3)
 
 model.evaluate(testing_images, testing_labels, verbose=0)
 
