@@ -113,7 +113,7 @@ model = tf.keras.models.Sequential([
     # 512 neuron hidden layer
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(3, activation='softmax')
-    )
+  ])
     
 model.summary()
     
