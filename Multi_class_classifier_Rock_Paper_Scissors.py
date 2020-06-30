@@ -125,12 +125,13 @@ history = model.fit(train_generator, epochs=25, steps_per_epoch=20, validation_d
 
 model.evaluate(testing_images, testing_labels, verbose=0)
 
+# Plot the chart for accuracy and loss on both training and validation
 %matplotlib inline
 import matplotlib.pyplot as plt
-acc = # Your Code Here
-val_acc = # Your Code Here
-loss = # Your Code Here
-val_loss = # Your Code Here
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
 
 epochs = range(len(acc))
 
